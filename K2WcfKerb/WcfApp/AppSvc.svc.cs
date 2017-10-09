@@ -12,7 +12,7 @@ namespace WcfApp
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "AppSvc" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select AppSvc.svc or AppSvc.svc.cs at the Solution Explorer and start debugging.
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class AppSvc : IAppSvc
     {
         [OperationBehavior(Impersonation = ImpersonationOption.Required)]
@@ -38,20 +38,23 @@ namespace WcfApp
 
             try
             {
-                var client = new K2RestSvcRef.IdentityServiceClient();
-                //https://k2.denallix.com/K2Services/REST.svc/Identity/Users
-                client.Endpoint.Address = new EndpointAddress("https://k2.denallix.com/K2Services/REST.svc");
-                var tt = client.GetAllUsers();
-                if (tt?.Length > 0)
+                using (ServiceSecurityContext.Current.WindowsIdentity.Impersonate())
                 {
-                    tt.ToList().ForEach(x => ret.Add(new K2UserInfo()
+                    var client = new K2RestSvcRef.IdentityServiceClient();
+                    //https://k2.denallix.com/K2Services/REST.svc/Identity/Users
+                    client.Endpoint.Address = new EndpointAddress("https://k2.denallix.com/K2Services/REST.svc");
+                    var tt = client.GetAllUsers();
+                    if (tt?.Length > 0)
                     {
-                        DisplayName = x.DisplayName,
-                        Email = x.Email,
-                        Fqn = x.Fqn,
-                        Manager = x.Manager,
-                        Username = x.Username
-                    }));
+                        tt.ToList().ForEach(x => ret.Add(new K2UserInfo()
+                        {
+                            DisplayName = x.DisplayName,
+                            Email = x.Email,
+                            Fqn = x.Fqn,
+                            Manager = x.Manager,
+                            Username = x.Username
+                        }));
+                    }
                 }
             }
             catch (Exception ex)
