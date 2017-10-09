@@ -16,7 +16,7 @@
         </p>
     </div>
         <div>
-            <asp:Panel runat="server" ID="pnlContainer" Visible="False">
+            <asp:Panel runat="server" ID="pnlContainer">
 
             </asp:Panel>
         </div>

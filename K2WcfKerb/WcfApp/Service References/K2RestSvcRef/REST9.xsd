@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.k2.com/worklist/d1" elementFormDefault="qualified" targetNamespace="http://schemas.k2.com/worklist/d1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd0" namespace="http://schemas.k2.com/process/d1" />
+  <xs:import schemaLocation="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd5" namespace="http://schemas.k2.com/activity/d1" />
+  <xs:import schemaLocation="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd6" namespace="http://schemas.k2.com/event/d1" />
+  <xs:complexType name="ProcessInstance">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.k2.com/process/d1" minOccurs="0" maxOccurs="1" ref="q1:Description" />
+      <xs:element xmlns:q2="http://schemas.k2.com/process/d1" minOccurs="0" maxOccurs="1" ref="q2:Metadata" />
+      <xs:element xmlns:q3="http://schemas.k2.com/process/d1" minOccurs="0" maxOccurs="unbounded" ref="q3:DataField" />
+      <xs:element xmlns:q4="http://schemas.k2.com/process/d1" minOccurs="0" maxOccurs="unbounded" ref="q4:XmlField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ViewFlow" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="ExpectedDuration" type="xs:long" use="required" />
+    <xs:attribute name="Folder" type="xs:string" />
+    <xs:attribute name="Folio" type="xs:string" />
+    <xs:attribute name="FullName" type="xs:string" />
+    <xs:attribute name="Guid" type="xs:string" />
+    <xs:attribute name="ID" type="xs:long" use="required" />
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="Priority" type="xs:int" use="required" />
+    <xs:attribute name="StartDate" type="xs:dateTime" use="required" />
+    <xs:attribute name="Status" type="tns:ProcessStatus" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="ProcessStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Running" />
+      <xs:enumeration value="Active" />
+      <xs:enumeration value="Completed" />
+      <xs:enumeration value="Stopped" />
+      <xs:enumeration value="Deleted" />
+      <xs:enumeration value="New" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OpenWorklist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="actDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actXmlField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piXmlField" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenWorklistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OpenWorklistResult" type="tns:ArrayOfWorklistItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfWorklistItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorklistItem" nillable="true" type="tns:WorklistItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WorklistItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Data" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Action" type="tns:Action" />
+      <xs:element xmlns:q5="http://schemas.k2.com/process/d1" minOccurs="0" maxOccurs="1" ref="q5:ProcessInstance" />
+      <xs:element xmlns:q6="http://schemas.k2.com/activity/d1" minOccurs="0" maxOccurs="1" ref="q6:ActivityInstanceDestination" />
+      <xs:element xmlns:q7="http://schemas.k2.com/process/d1" minOccurs="0" maxOccurs="unbounded" name="DelegatedUser" type="q7:Destination" />
+      <xs:element xmlns:q8="http://schemas.k2.com/event/d1" minOccurs="0" maxOccurs="1" ref="q8:ActivityInstanceDestination" />
+    </xs:sequence>
+    <xs:attribute name="AllocatedUser" type="xs:string" />
+    <xs:attribute name="ID" type="xs:long" use="required" />
+    <xs:attribute name="SerialNumber" type="xs:string" />
+    <xs:attribute name="Status" type="tns:WorklistStatus" use="required" />
+  </xs:complexType>
+  <xs:complexType name="Action">
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="Batchable" type="xs:boolean" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="WorklistStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Available" />
+      <xs:enumeration value="Open" />
+      <xs:enumeration value="Allocated" />
+      <xs:enumeration value="Sleep" />
+      <xs:enumeration value="Completed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OpenWorklistFiltered">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="filter" type="tns:Criteria" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actXmlField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piXmlField" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Criteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Filter" type="tns:CriteriaFilter" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Sort" type="tns:CriteriaSort" />
+    </xs:sequence>
+    <xs:attribute name="ManagedUser" type="xs:string" />
+    <xs:attribute name="Platform" type="xs:string" />
+    <xs:attribute name="Count" type="xs:long" use="required" />
+    <xs:attribute name="StartIndex" type="xs:long" use="required" />
+  </xs:complexType>
+  <xs:complexType name="CriteriaFilter">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Comparison" type="tns:CriteriaComparison" use="required" />
+        <xs:attribute name="Field" type="tns:CriteriaField" use="required" />
+        <xs:attribute name="Logical" type="tns:CriteriaLogical" use="required" />
+        <xs:attribute name="SubField" type="xs:string" />
+        <xs:attribute name="ValueType" type="tns:ValueType" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="CriteriaComparison">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="NotEqual" />
+      <xs:enumeration value="Less" />
+      <xs:enumeration value="LessOrEqual" />
+      <xs:enumeration value="Greater" />
+      <xs:enumeration value="GreaterOrEqual" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="NotLike" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaField">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WorklistItemStatus" />
+      <xs:enumeration value="ProcessName" />
+      <xs:enumeration value="ProcessFullName" />
+      <xs:enumeration value="ProcessFolder" />
+      <xs:enumeration value="ProcessDescription" />
+      <xs:enumeration value="ProcessMetaData" />
+      <xs:enumeration value="ProcessPriority" />
+      <xs:enumeration value="ProcessExpectedDuration" />
+      <xs:enumeration value="ProcessFolio" />
+      <xs:enumeration value="ProcessStartDate" />
+      <xs:enumeration value="ProcessData" />
+      <xs:enumeration value="ProcessXml" />
+      <xs:enumeration value="ActivityName" />
+      <xs:enumeration value="ActivityDescription" />
+      <xs:enumeration value="ActivityMetaData" />
+      <xs:enumeration value="ActivityPriority" />
+      <xs:enumeration value="ActivityExpectedDuration" />
+      <xs:enumeration value="ActivityStartDate" />
+      <xs:enumeration value="ActivityData" />
+      <xs:enumeration value="ActivityXml" />
+      <xs:enumeration value="EventName" />
+      <xs:enumeration value="EventDescription" />
+      <xs:enumeration value="EventMetaData" />
+      <xs:enumeration value="EventPriority" />
+      <xs:enumeration value="EventExpectedDuration" />
+      <xs:enumeration value="EventStartDate" />
+      <xs:enumeration value="ProcessID" />
+      <xs:enumeration value="ProcessStatus" />
+      <xs:enumeration value="RowNumber" />
+      <xs:enumeration value="WorklistItemOwner" />
+      <xs:enumeration value="None" />
+      <xs:enumeration value="SerialNumber" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CriteriaLogical">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="And" />
+      <xs:enumeration value="Or" />
+      <xs:enumeration value="AndBracket" />
+      <xs:enumeration value="OrBracket" />
+      <xs:enumeration value="StartBracket" />
+      <xs:enumeration value="EndBracket" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Boolean" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="Decimal" />
+      <xs:enumeration value="Double" />
+      <xs:enumeration value="Integer" />
+      <xs:enumeration value="Long" />
+      <xs:enumeration value="String" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CriteriaSort">
+    <xs:attribute name="Field" type="tns:CriteriaField" use="required" />
+    <xs:attribute name="Order" type="tns:CriteriaSortOrder" use="required" />
+    <xs:attribute name="SubField" type="xs:string" />
+  </xs:complexType>
+  <xs:simpleType name="CriteriaSortOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending" />
+      <xs:enumeration value="Descending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="OpenWorklistFilteredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OpenWorklistFilteredResult" type="tns:ArrayOfWorklistItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenWorklistItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="serialNumber" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="allocate" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actXmlField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piXmlField" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenWorklistItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OpenWorklistItemResult" type="tns:WorklistItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteActionBySerial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="serialNumber" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="action" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="synchronous" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteActionBySerialResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="ExecuteActionByWorklistItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="item" type="tns:WorklistItem" />
+        <xs:element minOccurs="0" maxOccurs="1" name="action" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="synchronous" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteActionByWorklistItemResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="SearchForWorklistItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="processFullName" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="folio" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="actXmlField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piDataField" type="xs:boolean" />
+        <xs:element minOccurs="1" maxOccurs="1" name="piXmlField" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchForWorklistItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="SearchForWorklistItemsResult" type="tns:ArrayOfWorklistItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SleepWorklistItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="serialNumber" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="duration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SleepWorklistItemResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="RedirectWorklistItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="serialNumber" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="destination" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RedirectWorklistItemResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="DelegateWorklistItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="serialNumber" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" name="destination" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DelegateWorklistItemResponse">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="ReleaseWorklistItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="serialNumber" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReleaseWorklistItemResponse">
+    <xs:complexType />
+  </xs:element>
+</xs:schema>

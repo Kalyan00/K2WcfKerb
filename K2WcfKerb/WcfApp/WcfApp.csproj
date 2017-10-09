@@ -90,7 +90,85 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppSvc.svc" />
+    <None Include="Service References\K2RestSvcRef\configuration91.svcinfo" />
+    <None Include="Service References\K2RestSvcRef\configuration.svcinfo" />
+    <None Include="Service References\K2RestSvcRef\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.Action.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.ActivityInstanceDestination.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.DataField.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.DelegateWorklistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.Destination.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.EventInstance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.ExecuteActionBySerialResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.ExecuteActionByWorklistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.OpenProcessInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.OpenWorklistFilteredResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.OpenWorklistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.OpenWorklistResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.ProcessInstance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.RedirectWorklistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.ReleaseWorklistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.SearchForWorklistItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.SleepWorklistItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.StartNewProcessInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.StartNewProcessInstanceScalarResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.UpdateProcessInstanceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.WhoAmIResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.WorklistItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\K2RestSvcRef\WcfApp.K2RestSvcRef.XmlField.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSvc.svc.cs">
@@ -98,6 +176,11 @@
     </Compile>
     <Compile Include="IAppSvc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\K2RestSvcRef\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -107,12 +190,53 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Service References\K2RestSvcRef\REST.wsdl" />
+    <None Include="Service References\K2RestSvcRef\REST.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\Rest1.wsdl" />
+    <None Include="Service References\K2RestSvcRef\REST1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST2.wsdl" />
+    <None Include="Service References\K2RestSvcRef\REST2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST3.wsdl" />
+    <None Include="Service References\K2RestSvcRef\REST3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST4.wsdl" />
+    <None Include="Service References\K2RestSvcRef\REST4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\K2RestSvcRef\REST9.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\K2RestSvcRef\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

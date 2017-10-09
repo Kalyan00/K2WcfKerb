@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:i3="http://schemas.k2.com/core/d1" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://schemas.k2.com/process/d1:navigation" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:i1="http://schemas.k2.com/worklist/d1:navigation" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i2="http://schemas.k2.com/user/d1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Rest" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WebHttpBinding_IProcessNavigationService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WebHttpBinding_IWorklistNavigationService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WebHttpBinding_IIdentityService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WebHttpBinding_ICoreService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://schemas.k2.com/process/d1:navigation" location="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl0" />
+  <wsdl:import namespace="http://schemas.k2.com/worklist/d1:navigation" location="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl1" />
+  <wsdl:import namespace="http://schemas.k2.com/user/d1" location="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl2" />
+  <wsdl:import namespace="http://schemas.k2.com/core/d1" location="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl3" />
+  <wsdl:types />
+  <wsdl:binding name="WebHttpBinding_IProcessNavigationService" type="i0:IProcessNavigationService">
+    <wsp:PolicyReference URI="#WebHttpBinding_IProcessNavigationService_policy" />
+    <wsdl:operation name="StartNewProcessInstance">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProcessInstance">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenProcessInstance">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="StartNewProcessInstanceScalar">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessInstanceDataFields">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessInstanceDataField">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessInstanceXmlFields">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcessInstanceXmlField">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebHttpBinding_IWorklistNavigationService" type="i1:IWorklistNavigationService">
+    <wsp:PolicyReference URI="#WebHttpBinding_IWorklistNavigationService_policy" />
+    <wsdl:operation name="OpenWorklist">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistFiltered">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItem">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteActionBySerial">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteActionByWorklistItem">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchForWorklistItems">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="SleepWorklistItem">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="RedirectWorklistItem">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="DelegateWorklistItem">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseWorklistItem">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemActions">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemAction">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemProcessInstance">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemProcessInstanceDataFields">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemProcessInstanceDataField">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemProcessInstanceXmlFields">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemProcessInstanceXmlField">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemActivityInstanceDestination">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemActivityInstanceDestinationDataFields">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemActivityInstanceDestinationDataField">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemActivityInstanceDestinationXmlFields">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemActivityInstanceDestinationXmlField">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemEventInstance">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemDestinations">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenWorklistItemDestination">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebHttpBinding_IIdentityService" type="i2:IIdentityService">
+    <wsp:PolicyReference URI="#WebHttpBinding_IIdentityService_policy" />
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsers">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebHttpBinding_ICoreService" type="i3:ICoreService">
+    <wsp:PolicyReference URI="#WebHttpBinding_ICoreService_policy" />
+    <wsdl:operation name="WhoAmI">
+      <wsdl:input />
+      <wsdl:output />
+      <wsdl:fault name="FailureFault" />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Rest">
+    <wsdl:port name="WebHttpBinding_IProcessNavigationService" binding="tns:WebHttpBinding_IProcessNavigationService" />
+    <wsdl:port name="WebHttpBinding_IWorklistNavigationService" binding="tns:WebHttpBinding_IWorklistNavigationService" />
+    <wsdl:port name="WebHttpBinding_IIdentityService" binding="tns:WebHttpBinding_IIdentityService" />
+    <wsdl:port name="WebHttpBinding_ICoreService" binding="tns:WebHttpBinding_ICoreService" />
+  </wsdl:service>
+</wsdl:definitions>

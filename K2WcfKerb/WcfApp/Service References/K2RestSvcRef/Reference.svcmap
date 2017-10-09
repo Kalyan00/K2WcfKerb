@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="63970ff1-8342-4049-8b33-376e5c7e3f8c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://k2.denallix.com/K2Services/REST.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="REST.xsd" MetadataType="Schema" ID="a5b4edc5-197b-4f7c-b326-63638c1a3fe0" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd7" />
+    <MetadataFile FileName="REST.wsdl" MetadataType="Wsdl" ID="6336cdfa-33f5-42d7-b806-9cd8d4ff81de" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl2" />
+    <MetadataFile FileName="REST1.xsd" MetadataType="Schema" ID="5b380673-7864-4037-91f6-ff9eb6c5cdda" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd5" />
+    <MetadataFile FileName="REST2.xsd" MetadataType="Schema" ID="5912168c-cdce-4b05-ad51-686dc14a2834" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd8" />
+    <MetadataFile FileName="Rest1.wsdl" MetadataType="Wsdl" ID="ff0adcb2-7997-417f-8c91-7ee7fc09b7ce" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?wsdl" />
+    <MetadataFile FileName="REST2.wsdl" MetadataType="Wsdl" ID="f7942beb-fd89-44b0-bfa0-bf7625d35c03" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl3" />
+    <MetadataFile FileName="REST3.xsd" MetadataType="Schema" ID="d2f4b0c3-d712-4d60-8aaf-d21b79f3902f" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd2" />
+    <MetadataFile FileName="REST4.xsd" MetadataType="Schema" ID="c957e76e-8df2-4304-9ed6-0718c5859829" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd0" />
+    <MetadataFile FileName="REST5.xsd" MetadataType="Schema" ID="3ec5c024-28e5-4a08-a4a5-9af47312d072" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd6" />
+    <MetadataFile FileName="REST3.wsdl" MetadataType="Wsdl" ID="0631c431-1566-446a-b040-ba1ba2fd17a5" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="REST6.xsd" MetadataType="Schema" ID="af6435e0-247c-44a5-ac9b-8d94ab64ee7a" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd4" />
+    <MetadataFile FileName="REST7.xsd" MetadataType="Schema" ID="5a720551-0b04-4fc8-8186-2e24556772af" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd9" />
+    <MetadataFile FileName="REST4.wsdl" MetadataType="Wsdl" ID="bc3123ea-696d-497c-8f9f-bb23b1a202c8" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?wsdl=wsdl1" />
+    <MetadataFile FileName="REST8.xsd" MetadataType="Schema" ID="998a5396-85ca-4360-a7fc-1ea7030a2896" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd3" />
+    <MetadataFile FileName="REST9.xsd" MetadataType="Schema" ID="72f1a866-9278-4790-976a-5c4a1a9b2d0a" SourceId="1" SourceUrl="https://k2.denallix.com/K2Services/REST.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

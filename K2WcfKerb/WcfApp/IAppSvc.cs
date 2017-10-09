@@ -13,6 +13,7 @@ namespace WcfApp
     public interface IAppSvc
     {
         // TODO: Add your service operations here
+        [OperationContract]
         List<K2UserInfo> GetUsers();
     }
 
